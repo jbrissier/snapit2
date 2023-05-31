@@ -10,10 +10,19 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Event {
+  id          String @id @default(uuid())
+  name        String
+  description String
+
+  Image Image[]
+}
 
 model Image {
-  id        Int     @id @default(autoincrement())
-  url       String
-  published Boolean @default(true)
+  id         Int      @id @default(autoincrement())
+  url        String
+  published  Boolean  @default(true)
   uploadTime DateTime @default(now())
+  event      Event    @relation(fields: [eventId], references: [id])
+  eventId    String // relation scalar field  (used in the `@relation` attribute above)
 }
