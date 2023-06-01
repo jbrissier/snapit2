@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
 
       <body className={inter.className}>
-        <div className="bg-slate-600 flex flex-col md:justify-center md:items-center h-screen p-12">
+        <div className=" flex flex-col md:justify-center md:items-center h-screen p-12">
 
 
             {children}

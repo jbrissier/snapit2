@@ -23,6 +23,7 @@ model Image {
   url        String
   published  Boolean  @default(true)
   uploadTime DateTime @default(now())
+  showTime   DateTime?
   event      Event    @relation(fields: [eventId], references: [id])
   eventId    String // relation scalar field  (used in the `@relation` attribute above)
 }

@@ -6,33 +6,30 @@ import { useEffect, useState } from "react";
 
 
 
-export function  ImageViewer({images, time=4000}) {
-    const [index, setIndex] = useState(0);
-  
+export function  ImageViewer({eventId, time=4000}) {
+    const [imageUrl, setImageUrl] = useState(null);
+
     useEffect(() => {
-  
+
+      if(eventId == null) return;
+
+
       const interval = setInterval(() => {
-      
-        setIndex((index)=>{
+        fetch(`/api/${eventId}/`)
+          .then(response => response.json())
+          .then(data => setImageUrl(data.image.url));
 
-            if ((index +1) >= images.length) {
-                return 0;
-            }
-            return index + 1;
-
-        });
       }, time);
-      
+
       return () => clearInterval(interval);
-    
+
     }, []);
 
 
-    const styleParams = {backgroundImage: `url(${images[index]})`, backgroundSize: "cover"}
-  
-  
+    const styleParams = {backgroundImage: imageUrl?`url(${imageUrl})`:'', backgroundSize: "cover"}
+
+
     return <div className="w-screen h-screen" style={styleParams}>
-  
-    
+      {setImageUrl}
     </div>;
   }
