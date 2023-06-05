@@ -2,8 +2,8 @@ import './globals.css'
 import { Inter } from 'next/font/google'
 
 import { getServerSession } from "next-auth/next"
-import { SignIn, SignOut } from "./components/actions"
 import { authOptions } from "../pages/api/auth/[...nextauth]"
+import { SignIn, SignOut } from "./components/actions"
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
@@ -17,16 +17,23 @@ export default async function RootLayout({ children }) {
 
   const session = await getServerSession(authOptions);
 
-
   return (
     <html lang="en">
 
       <body className={inter.className}>
-        <div className=" flex flex-col md:justify-center md:items-center h-screen p-12">
-          <pre>{JSON.stringify(session, null, " ")}</pre>
-          <SignIn/><SignOut/>
-            {children}
+        <div className=" flex flex-col md:justify-center md:items-center h-screen p-12 items-center ">
+          <div className="flex absolute top-0 right-0 w-full justify-between bg-gray-100 shadow items-center p-4 border-b border-b-gray-300">
+            {session && <div className="text"> {session.user.name}</div>}
+            {!session && <div className="text"> Not Signed In</div>}
 
+            <div className="flex ">
+              <div className="mr-4">
+                {!session && <SignIn />}
+                {session && <SignOut />}
+              </div>
+            </div>
+            </div>
+            {children}
         </div>
         </body>
 
