@@ -1,15 +1,34 @@
+'use client'
+
+import { handleSubmit } from './actions'
+import { useTransition, useState } from 'react';
+
+export default function PageWithoutJSbasedForm({}) {
+
+    const [data, setData] = useState({})
+    let [isPending, startTransition] = useTransition();
+    async function foo(data) {
+
+        // startTransition(() => {
+        //     handleSubmit(data)
+        // })
 
 
-export default function PageWithoutJSbasedForm() {
+        const foo = await handleSubmit(data)
+        console.log('component', foo)
+        setData(foo)
+    }
+
     return (
-        <form action="/api/form" method="post">
+
+        <form action={foo} method="post">
+            <pre>{JSON.stringify(data, null, " ")}</pre>
             <label htmlFor="first">First Name</label>
-            <input type="text" id="first" name="first" required />
 
-            <label htmlFor="last">Last Name</label>
-            <input type="text" id="last" name="last" required />
+            <label htmlFor="last">Image ID</label>
+            <input type="text" id="id" name="id" required className="border p-4" />
 
-            <button type="submit">Submit</button>
+            <button type="submit" className="bg-orange-500 border">Submit</button>
         </form>
     );
 }
