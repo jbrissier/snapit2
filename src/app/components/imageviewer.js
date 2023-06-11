@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from "react";
-
+import _ from 'lodash'
 
 
 
@@ -17,7 +17,7 @@ export function  ImageViewer({eventId, time=4000}) {
       const interval = setInterval(() => {
         fetch(`/api/${eventId}/`)
           .then(response => response.json())
-          .then(data => setImageUrl(data.image.url));
+          .then(data => setImageUrl(_.get(data, 'image.url')));
 
       }, time);
 
