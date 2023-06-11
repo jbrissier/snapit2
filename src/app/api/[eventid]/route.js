@@ -4,7 +4,7 @@ import moment from 'moment'
 import _ from 'lodash'
 const prisma = new PrismaClient()
 
-const IMAGE_SHOW_PERIOD = 60 // seconds
+const IMAGE_SHOW_PERIOD = 10 // seconds
 
 
 
