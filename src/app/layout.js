@@ -21,18 +21,10 @@ export default async function RootLayout({ children }) {
     <html lang="en">
 
       <body className={inter.className}>
-        <div className=" flex flex-col md:justify-center md:items-center h-screen p-12 items-center ">
-          <div className="flex absolute top-0 right-0 w-full justify-between bg-gray-100 shadow items-center p-4 border-b border-b-gray-300">
-            {session && <div className="text"> {session.user.name}</div>}
-            {!session && <div className="text"> Not Signed In</div>}
-
-            <div className="flex ">
-              <div className="mr-4">
-                {!session && <SignIn />}
-                {session && <SignOut />}
-              </div>
-            </div>
-            </div>
+        <div className='absolute flex justify-center -z-10 items-end h-full w-full bg-blue-500'>
+          <img className='w-full h-full ' src="cloud.svg"></img>
+        </div>
+        <div className="flex flex-col md:justify-center md:items-center h-screen p-12 items-center  text-white">
             {children}
         </div>
         </body>

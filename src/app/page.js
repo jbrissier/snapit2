@@ -18,24 +18,22 @@ export  default async function Home() {
   const events = await prisma.event.findMany({})
 
   return (
-    <main>
-
-      <h1 className="text-3xl mb-3"> SnapIT 2.0</h1>
+    <main className="bg-siblue ">
 
 
 
-        <div>
-          <h2 className="text-2xl mb-3">Events</h2>
-          <ul className="list-disc">
+
+        <div className='h-1/2 flex flex-col justify-between'>
+          <h2 className="text-5xl mb-3 text-black">Events</h2>
+          <ul className="flex ">
           {events.map((event) =>
-            (<li>
+            (
               <EventListItem event={event} />
-
-            </li>)
+            )
           )}
 
           </ul>
-        <div><Link href="event/create">create Event</Link></div>
+        <Link className="bg-amber-600 my-5 p-3 rounded shadow-xl text-center font-bold" href="event/create">Event erstellen</Link>
 
         </div>
       </main>
