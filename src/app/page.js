@@ -1,12 +1,18 @@
 import Image from 'next/image'
-import Link from 'next/link';
+
+import Link from 'next/link'
 import { PrismaClient } from '@prisma/client'
+import { revalidatePath } from 'next/cache';
+
 
 const prisma = new PrismaClient()
-
+import EventListItem  from './components/eventitem'
 
 
 export  default async function Home() {
+
+
+
 
 
   const events = await prisma.event.findMany({})
@@ -23,9 +29,14 @@ export  default async function Home() {
           <ul className="list-disc">
           {events.map((event) =>
             (<li>
-            <Link href={`/${event.id}`}>{event.name}</Link></li>)
+              <EventListItem event={event} />
+
+            </li>)
           )}
+
           </ul>
+        <div><Link href="event/create">create Event</Link></div>
+
         </div>
       </main>
   )

@@ -16,14 +16,14 @@ export default async function ImageViewerPage({ params }) {
 
 
     return <div className="flex flex-col bg-white  shadow-2xl p-4 rounded w-full lg:w-1/3 ">
-        <div class="text-black text-2xl mb-4">
+        <div className="text-black text-2xl mb-4">
             {event.name} | ID: {event.id}
 
         </div>
 
-        <div class="flex justify-between gap-4 items-start">
+        <div className="flex justify-between gap-4 items-start">
 
-        <div class="flex flex-col w-full">
+        <div className="flex flex-col w-full">
 
         <Link href={`/${event.id}/iv`}>
             <Button className="my-2">show Images</Button>
