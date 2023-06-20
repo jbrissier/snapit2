@@ -22,9 +22,9 @@ export default async function RootLayout({ children }) {
 
       <body className={inter.className}>
         <div className='absolute flex justify-center -z-10 items-end h-full w-full bg-blue-500'>
-          <img className='w-full h-full ' src="cloud.svg"></img>
+          <img className='w-full h-full ' src="/cloud.svg"></img>
         </div>
-        <div className="flex flex-col md:justify-center md:items-center h-screen p-12 items-center  text-white">
+        <div className="flex flex-col md:justify-center md:items-center h-screen p-6 items-center  text-white">
             {children}
         </div>
         </body>
