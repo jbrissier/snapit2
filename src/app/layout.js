@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google'
 import { getServerSession } from "next-auth/next"
 import { authOptions } from "../pages/api/auth/[...nextauth]"
 import { SignIn, SignOut } from "./components/actions"
+import BrowserSize from './components/browsersize'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
@@ -18,13 +19,16 @@ export default async function RootLayout({ children }) {
   const session = await getServerSession(authOptions);
 
   return (
-    <html lang="en">
+    <html lang="de">
+      <meta name="viewport" content="initial-scale=1.0"/>
+      <BrowserSize/>
 
-      <body className={inter.className}>
-        <div className='absolute flex justify-center -z-10 items-end h-full w-full bg-blue-500'>
+      <body className={inter.className + " bg-blue-500 "}>
+
+        <div className='absolute flex justify-center -z-10 items-end w-full bg-blue-500 '>
           <img className='w-full h-full ' src="/cloud.svg"></img>
         </div>
-        <div className="flex flex-col md:justify-center md:items-center h-screen p-6 items-center  text-white">
+        <div className="flex flex-col md:justify-center md:items-center h-full items-center  text-white w-full ">
             {children}
         </div>
         </body>

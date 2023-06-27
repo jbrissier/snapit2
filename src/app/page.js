@@ -19,7 +19,7 @@ export  default async function Home() {
   const events = await prisma.event.findMany({})
 
   return (
-    <main className="bg-siblue w-full flex justify-center">
+    <main className="w-full flex justify-center">
 
 
 
@@ -35,7 +35,7 @@ export  default async function Home() {
               )}
 
           </ul>
-        <Link className="bg-amber-600 my-5 p-3 rounded shadow-xl text-center font-bold" href="event/create">Event erstellen</Link>
+        <Link className="bg-amber-600 my-5 rounded shadow-xl text-center font-bold" href="event/create">Event erstellen</Link>
 
         </Well>
       </main>

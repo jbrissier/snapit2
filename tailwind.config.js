@@ -17,7 +17,7 @@ module.exports = {
           500: '#306DC1'
         },
         amber:{
-          600: '#CBB279'
+          600: '#D7AA46'
         }
       }
     },
