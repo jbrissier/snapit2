@@ -5,6 +5,7 @@ import { ShareLink, ShowImages } from '../components/Link.js';
 const prisma = new PrismaClient()
 
 import QRCode from "react-qr-code";
+import UploadImage from '../components/upload.js';
 export default async function ImageViewerPage({ params }) {
 
     // show event informations
@@ -24,9 +25,7 @@ export default async function ImageViewerPage({ params }) {
             <img src="/logo.png" className="w-1/2 mx-auto" alt="logo" />
         </div>
 
-        <div className="cursor-pointer">
-            <img src="/uploadcloud.svg" className="w-3/4 mx-auto" alt="logo" />
-        </div>
+        <UploadImage params={params}></UploadImage>
         <div class="flex flex-col gap-3">
             <h1 className='text-center text-3xl font-bold my-3'>{event.name}</h1>
            <ShareLink href={`/${event.id}/iv`}></ShareLink>

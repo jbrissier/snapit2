@@ -6,6 +6,7 @@ import { useTransition } from 'react'
 
 
 
+
 export default function Event({ event }) {
 
     const [isPending, startTransition] = useTransition()

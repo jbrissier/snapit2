@@ -28,7 +28,6 @@ export default function PageWithoutJSbasedForm({params}) {
             {data.image && <div class="text-2xl"> Dein Bild wird gleich angezeit</div>}
             </div>
         <form action={uploadImage} method="post">
-            <pre>{JSON.stringify(params, null, " ")}</pre>
             <input type="file" accept='image/*' name="image" className="border-red-100 border" formAction={submitImage} />
             <input type="hidden" name="eventid" value={params.eventid} />
             <button type="submit" className="bg-orange-500 border">Bild hochladen</button>

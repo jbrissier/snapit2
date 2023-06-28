@@ -3,7 +3,7 @@ import { Inter } from 'next/font/google'
 
 import { getServerSession } from "next-auth/next"
 import { authOptions } from "../pages/api/auth/[...nextauth]"
-import { SignIn, SignOut } from "./components/actions"
+
 import BrowserSize from './components/browsersize'
 const inter = Inter({ subsets: ['latin'] })
 
