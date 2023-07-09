@@ -42,9 +42,9 @@ export  default async function Home() {
           <h2 className="text-5xl mb-3 text-black">Events</h2>
           <hr className='my-5 bg-slate-600'/>
           <ul className="flex justify-stretch flex-col gap-3">
-          {events.map((event) =>
+          {events.map((event, ix) =>
             (
-              <EventListItem event={event} />
+              <EventListItem key={ix} event={event} />
               )
               )}
 
